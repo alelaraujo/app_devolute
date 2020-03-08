@@ -1,28 +1,28 @@
-<p id="notice"><%= notice %></p>
+<div class="container">
+  <div class="row justify-content-center">
+    <div class="col-lg-9">
+      <h1>Images</h1>
+      <%= link_to 'New image', new_album_path, class:"btn btn-primary my-3" %>
+      <div class="row row-cols-3">
+          <% @albums.each do |album| %>
+            <div class="col">
+              <div class="card my-3">
+                <%= image_tag album.photo.variant(resize_to_limit: [100, 100]), class:"card-img-top" %>
+                <div class="card-body">
+                  <h5 class="card-title"><%= album.name %></h5>
+                </div>
+                <div class="card-footer">
+                  <small class="text-muted">
+                    <%= link_to 'Show', album %> | 
+                    <%= link_to 'Edit', edit_album_path(album) %> | 
+                    <%= link_to 'Destroy', album, method: :delete, data: { confirm: 'Are you sure?' } %>
+                  </small>
+                </div>
+              </div>
+            </div>
+          <% end %>
+        </div>
+      </div>
+    </div>
+</div>
 
-<h1>Albums</h1>
-
-<table>
-  <thead>
-    <tr>
-      <th>Name</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <% @albums.each do |album| %>
-      <tr>
-        <td><%= album.name %></td>
-        <td><%= image_tag album.photo.variant(resize_to_limit: [100, 100]) %></td>
-        <td><%= link_to 'Show', album %></td>
-        <td><%= link_to 'Edit', edit_album_path(album) %></td>
-        <td><%= link_to 'Destroy', album, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
-
-<br>
-
-<%= link_to 'New Album', new_album_path %>
