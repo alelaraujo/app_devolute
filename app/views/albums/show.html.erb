@@ -1,14 +1,20 @@
-<p id="notice"><%= notice %></p>
+<div class="container">
+  <div class="row justify-content-center">
+    <div class="col-lg-9">
+      <p id="notice"><%= notice %></p>
 
-<p>
-  <strong>Name:</strong>
-  <%= @album.name %>
-</p>
+      <p>
+        <strong>Name:</strong>
+        <%= @album.name %>
+      </p>
 
-<p>
-  <strong>Image:</strong>
-  <%= image_tag @album.photo.variant(resize_to_limit: [300, 300]) %>
-</p>
+      <p>
+        <strong>Image:</strong><br />
+        <%= image_tag @album.photo.variant(resize_to_limit: [600, 600]) %>
+      </p>
 
-<%= link_to 'Edit', edit_album_path(@album) %> |
-<%= link_to 'Back', albums_path %>
+      <%= link_to 'Edit', edit_album_path(@album) %> |
+      <%= link_to 'Back', albums_path %>
+    </div>
+  </div>
+</div>
